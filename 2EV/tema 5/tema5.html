@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function cambio(elemento, color) {
+        elemento.style.color = color;
+        }
+
+        function queBoton(event) {
+        // La propiedad button del objeto event devuelve el boton
+        // del ratón pulsado 0=izquierdo 1=medio 2=derecho
+        switch(event.button){
+            case 0: alert("Has pulsado el botón izquierdo");
+                break;
+            case 1: alert("Has pulsado el botón medio");
+                break;
+            case 2: alert("Has pulsado el botón derecho");
+            }
+        }
+
+        function coordenadas(e) {
+            // Las propiedades clientX y clientY del objeto event
+                // devuelve la posición x e y del puntero del ratón.
+                x = e.clientX;
+                y = e.clientY;
+                pos = "Posicion: (" + x + "," + y + ")";
+                document.getElementById("mensaje").innerHTML = pos;
+            }
+        function borrar() {
+                document.getElementById("mensaje").innerHTML = "";
+            }
+            function aumentaImg(x) {
+                x.style.height = "200px";
+                x.style.width = "200px";
+            }
+            function normalImg(x) {
+                x.style.height = "100px";
+                x.style.width = "100px";
+            }
+            function mostrarMensaje(texto) {
+                document.getElementById("mensaje").innerHTML = texto;
+            }
+
+            function mensaje(texto) {
+                document.getElementById("parrafo").innerHTML = texto;
+            }
+
+            function mensaje(texto) {
+                document.getElementById("parrafo").innerHTML = texto;
+            }
+    </script>
+    <style>
+        #marco {
+            width:400px;
+            height:200px;
+            border:1px solid;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <h1 onmouseover="style.color='red'" onmouseout="style.color='black'">
+        Mueve sobre este texto
+        </h1>
+
+
+    <p onmousedown="cambio(this,'red')" onmouseup="cambio(this,'green')">
+        Pulsa sobre el texto
+    </p>
+
+    
+    <div onmousedown="queBoton(event);">
+        Pulsar sobre el texto con los botones de ratón
+    </div>
+
+
+    <div id="marco" onmousemove="coordenadas(event)"
+onmouseout="borrar();">
+    </div>
+    <p id="mensaje">
+    </p>
+
+
+    <img onmouseover="aumentaImg(this);"
+        onmouseout="normalImg(this);"
+        src="http://mapamundial.co/images/mundo.gif"
+        width="200" height="200">
+
+        <img src ="plano.jpg" usemap="#planetmap" />
+        <map name="planetmap">
+            <area shape ="rect" coords ="93,41,182,120"
+            onmouseover="mostrarMensaje('El cuarto de baño está dotado de bañerahidromasaje.')"
+            onmouseout="mostrarMensaje('');"/>
+            <area shape ="rect" coords ="248,28,445,202"
+            onmouseover="mostrarMensaje('El amplio dormitorio tiene un gran armarioempotrado.')"
+            onmouseout="mostrarMensaje('');"/>
+        </map>
+        <p id="mensaje">
+        </p>
+
+
+        <button onclick="mensaje('Aula Campus')">Mostrar</button>
+        <button onclick="mensaje('')">Borrar</button>
+        <p id="parrafo"></p>
+
+
+        <p ondblclick="mensaje('Aula Campus')"></p>
+        <p ondblclick="mensaje('')"></p>
+        <p id="parrafo"></p>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <h1>Retenciones de trabajadores</h1>
+    <table border="1" id="tablaTrabajadores">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Sueldo</th>
+            <th>Fecha de alta</th>
+            <th>Retención</th>
+        </tr>
+    </table>
+
+    <script>
+        const trabajadores = [
+            ['Juan', 'Pérez', 2000, new Date(1975, 4, 10)],
+            ['Ana', 'Gómez', 1800, new Date(1985, 6, 20)],
+            ['Luis', 'Martínez', 2200, new Date(2005, 1, 15)]
+        ];
+
+        const tabla = document.getElementById('tablaTrabajadores');
+
+        trabajadores.forEach(trabajador => {
+            let retencion;
+            const anioAlta = trabajador[3].getFullYear();
+            if (anioAlta < 1980) retencion = trabajador[2] * 0.20;
+            else if (anioAlta <= 2000) retencion = trabajador[2] * 0.15;
+            else retencion = trabajador[2] * 0.05;
+
+            const fila = tabla.insertRow();
+            fila.insertCell().textContent = trabajador[0];
+            fila.insertCell().textContent = trabajador[1];
+            fila.insertCell().textContent = trabajador[2].toFixed(2);
+            fila.insertCell().textContent = trabajador[3].toLocaleDateString();
+            fila.insertCell().textContent = retencion.toFixed(2);
+        });
+    </script>
+</body>
+</html>

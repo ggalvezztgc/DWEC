@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 9</title>
+</head>
+<body>
+    <h1>Comprobar fecha de entrega</h1>
+    <label>Fecha de entrega: <input type="date" id="fechaEntrega"></label>
+    <button id="comprobar">Comprobar plazo</button>
+    <p id="resultado"></p>
+
+    <script>
+        const boton = document.getElementById('comprobar');
+        boton.addEventListener('click', () => {
+            const fechaEntrega = new Date(document.getElementById('fechaEntrega').value);
+            const hoy = new Date();
+            hoy.setHours(0,0,0,0);
+            fechaEntrega.setHours(0,0,0,0);
+            if (fechaEntrega <= hoy) {
+                document.getElementById('resultado').textContent = "Entrega dentro de plazo";
+            } else {
+                document.getElementById('resultado').textContent = "Entrega fuera de plazo";
+            }
+        });
+    </script>
+</body>
+</html>

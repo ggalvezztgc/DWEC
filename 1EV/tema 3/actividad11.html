@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11</title>
+</head>
+<body>
+    <h1>Convertir valor a entero</h1>
+    <label>Introduce un valor: <input type="text" id="valor"></label>
+    <button id="convertir">Convertir a entero</button>
+    <p id="resultado"></p>
+
+    <script>
+        const boton = document.getElementById('convertir');
+        boton.addEventListener('click', () => {
+            const valor = document.getElementById('valor').value;
+            const entero = parseInt(valor);
+            document.getElementById('resultado').textContent = `Valor entero: ${entero}`;
+        });
+    </script>
+</body>
+</html>

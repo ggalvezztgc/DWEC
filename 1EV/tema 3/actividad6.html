@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    <h1>Reloj en tiempo real</h1>
+    <p id="reloj"></p>
+    
+    <script>
+        const relojElemento = document.getElementById('reloj');
+
+        function actualizarReloj() {
+            const ahora = new Date();
+            const horas = ahora.getHours().toString().padStart(2, '0');
+            const minutos = ahora.getMinutes().toString().padStart(2, '0');
+            const segundos = ahora.getSeconds().toString().padStart(2, '0');
+            relojElemento.textContent = `${horas}:${minutos}:${segundos}`;
+        }
+
+        let intervalo = setInterval(actualizarReloj, 1000);
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Libros</title>
+    <script src="practica.js" defer></script>
+</head>
+<body>
+    <h2>Consulta de Libros</h2>
+    
+    <label for="codigo">Introduce el código del libro:</label>
+    <input type="number" id="codigo">
+    <button onclick="buscarLibro()">Buscar</button>
+
+    <br><br>
+
+    <table border="1" cellpadding="5">
+        <tr><td><b>Código</b></td><td id="codigoCelda"></td></tr>
+        <tr><td><b>Título</b></td><td id="tituloCelda"></td></tr>
+        <tr><td><b>Autor</b></td><td id="autorCelda"></td></tr>
+        <tr><td><b>Editorial</b></td><td id="editorialCelda"></td></tr>
+        <tr><td><b>Tema</b></td><td id="temaCelda"></td></tr>
+        <tr><td><b>ISBN</b></td><td id="isbnCelda"></td></tr>
+        <tr><td><b>Páginas</b></td><td id="paginasCelda"></td></tr>
+        <tr><td><b>Precio</b></td><td id="precioCelda"></td></tr>
+    </table>
+
+    <p id="mensaje" style="color:red;"></p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function mayusculas() {
+            var cuadro = document.getElementById("nombre");
+            cuadro.value = cuadro.value.toUpperCase();
+        }
+
+        function mensaje() {
+            document.getElementById('cuadroTexto').value =
+                document.getElementById('cuadro').value;
+        }
+
+        function asignaColor(color) {
+            document.getElementById("cuadro").style.background = color;
+        }
+    </script>
+
+</head>
+<body>
+    Nombre:<input type="text" id="nombre" onkeyup="mayusculas()">
+
+    Nombre:
+    <input type="text" id="cuadro" onkeyup="mensaje()" size="20">
+    <input type="text" id="cuadroTexto" size="20">
+
+    Mensaje: <input type="text" id="cuadro1" onkeydown="asignaColor('yellow');"
+        onkeyup="asignaColor('white');" id="cuadro1">
+</body>
+</html>
