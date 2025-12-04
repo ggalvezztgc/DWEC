@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 5</title>
+</head>
+<body>
+  <script>
+
+    var horas = parseFloat(prompt("Introduce las horas trabajadas:"));
+    var fechaTexto = prompt("Introduce la fecha (formato: aaaa-mm-dd):");
+    var fecha = new Date(fechaTexto);
+
+    var diaSemana = fecha.getDay();
+    var precioHora;
+    if (diaSemana === 0 || diaSemana === 6) {
+      precioHora = 20;
+    } else {
+      precioHora = 15;
+    }
+
+    var total = horas * precioHora;
+
+    document.write(`Fecha: ${fecha.toLocaleDateString()}<br>`);
+    document.write(`Horas trabajadas: ${horas}<br>`);
+    document.write(`Precio por hora: ${precioHora} €<br>`);
+    document.write(`<b>Total a pagar: ${total} €</b>`);
+  </script>
+</body>
+</html>
+

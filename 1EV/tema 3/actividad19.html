@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extracción de carta</title>
+</head>
+<body>
+    <script>
+        let palos = ["Oros", "Copas", "Espadas", "Bastos"];
+        let numeros = [1, 2, 3, 4, 5, 6, 7, 10, 11, 12];
+
+        let paloAleatorio = palos[Math.floor(Math.random() * palos.length)];
+        let numeroAleatorio = numeros[Math.floor(Math.random() * numeros.length)];
+
+        document.write("Carta sacada: " + numeroAleatorio + " de " + paloAleatorio);
+    </script>
+</body>
+</html>

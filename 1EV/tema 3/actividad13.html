@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio 13</title>
+</head>
+<body>
+  <label>Valor: <input id="valor" type="text"></label>
+  <button id="btn">Comprobar</button>
+  <div id="resultado"></div>
+
+  <script>
+    document.getElementById('btn').addEventListener('click', function(){
+      const v = document.getElementById('valor').value;
+      const entero = parseInt(v);
+      const flotante = parseFloat(v);
+      const esNumero = !isNaN(entero) && !isNaN(flotante);
+      document.getElementById('resultado').textContent = esNumero ? "Es un número" : "No es un número";
+    });
+  </script>
+</body>
+</html>

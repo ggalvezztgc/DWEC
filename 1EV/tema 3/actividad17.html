@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio 17</title>
+</head>
+<body>
+  <label>Número: <input id="valor" type="text"></label>
+  <button id="btn">Calcular</button>
+  <div id="resultado"></div>
+
+  <script>
+    document.getElementById('btn').addEventListener('click', function(){
+      const v = parseFloat(document.getElementById('valor').value);
+      const raiz = Math.sqrt(v);
+      const cuadrado = Math.pow(v, 2);
+      document.getElementById('resultado').textContent = "Raíz cuadrada: " + raiz + " | Cuadrado: " + cuadrado;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <h1>Cálculo de nómina</h1>
+    <label>Fecha inicial: <input type="date" id="fechaInicio"></label><br><br>
+    <label>Fecha final: <input type="date" id="fechaFin"></label><br><br>
+    <button id="calcular">Calcular nómina</button>
+    <p id="resultado"></p>
+
+    <script>
+        const boton = document.getElementById('calcular');
+        boton.addEventListener('click', () => {
+            const inicio = new Date(document.getElementById('fechaInicio').value);
+            const fin = new Date(document.getElementById('fechaFin').value);
+            if (inicio > fin) {
+                document.getElementById('resultado').textContent = "La fecha inicial no puede ser mayor que la final.";
+                return;
+            }
+            const unDia = 1000 * 60 * 60 * 24;
+            const diasTrabajados = Math.floor((fin - inicio) / unDia) + 1;
+            const sueldoBruto = diasTrabajados * 55;
+            const retencion = sueldoBruto * 0.12;
+            const sueldoNeto = sueldoBruto - retencion;
+            document.getElementById('resultado').textContent = `Días trabajados: ${diasTrabajados}, Sueldo bruto: ${sueldoBruto.toFixed(2)} €, Retención: ${retencion.toFixed(2)} €, Sueldo neto: ${sueldoNeto.toFixed(2)} €`;
+        });
+    </script>
+</body>
+</html>
