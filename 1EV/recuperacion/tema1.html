@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejercicio 1</title>
+</head>
+<body>
+  <h2>Ejercicio 1</h2>
+  <div id="salida"></div>
+ 
+  <script>
+    var alumnos = [
+      { codigo: "A1", nombre: "Cesar", apellidos: "Lopez", clase: "2DAW", nota1: 7, nota2: 8, nota3: 6, notaFinal: 0 },
+      { codigo: "A2", nombre: "Marcos", apellidos: "Perez", clase: "2DAW", nota1: 5, nota2: 6, nota3: 7, notaFinal: 0 },
+      { codigo: "A3", nombre: "Laura", apellidos: "Garcia", clase: "2DAW", nota1: 9, nota2: 8, nota3: 9, notaFinal: 0 },
+      { codigo: "A4", nombre: "Ana", apellidos: "Sanchez", clase: "2DAW", nota1: 4, nota2: 5, nota3: 6, notaFinal: 0 },
+      { codigo: "A5", nombre: "Ivan", apellidos: "Ruiz", clase: "2DAW", nota1: 10, nota2: 9, nota3: 8, notaFinal: 0 }
+    ];
+ 
+    for (var i = 0; i < alumnos.length; i++) {
+      var a = alumnos[i];
+      a.notaFinal = (a.nota1 + a.nota2 + a.nota3) / 3;
+ 
+      document.write("El alumno " + a.nombre + " tiene una nota final de " + a.notaFinal.toFixed(2) + "<br>");
+    }
+  </script>
+</body>
+</html>
+
+
+ 

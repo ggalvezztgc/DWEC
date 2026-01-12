@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Alta socio videoclub</title>
+</head>
+<body>
+
+<h1>Alta de socio</h1>
+
+<form onsubmit="return validar()">
+
+    <p>Nombre: <input type="text" id="nombre"></p>
+    <p>Apellidos: <input type="text" id="apellidos"></p>
+    <p>Dirección: <input type="text" id="direccion"></p>
+    <p>Población: <input type="text" id="poblacion"></p>
+    <p>Código Postal: <input type="text" id="cp"></p>
+    <p>Teléfono: <input type="text" id="telefono"></p>
+    <p>Móvil: <input type="text" id="movil"></p>
+    <p>DNI: <input type="text" id="dni"></p>
+    <p>Nº Cuenta Corriente: <input type="text" id="cuenta"></p>
+    <p>Cuota mensual: <input type="text" id="cuota"></p>
+    <p>Fecha nacimiento: <input type="text" id="fecha"></p>
+    <p>Nº hijos: <input type="text" id="hijos"></p>
+    <p>Email: <input type="text" id="email"></p>
+
+    <input type="submit" value="Enviar">
+
+</form>
+
+<script>
+function validar() {
+
+    var nombre = document.getElementById("nombre").value;
+    if (nombre.length < 3 || nombre.length > 30) {
+        alert("Nombre incorrecto");
+        return false;
+    }
+
+    var apellidos = document.getElementById("apellidos").value;
+    if (apellidos.length < 3 || apellidos.length > 60) {
+        alert("Apellidos incorrectos");
+        return false;
+    }
+
+    var direccion = document.getElementById("direccion").value;
+    if (direccion.length < 3 || direccion.length > 50) {
+        alert("Dirección incorrecta");
+        return false;
+    }
+
+    var poblacion = document.getElementById("poblacion").value;
+    if (poblacion.length < 3 || poblacion.length > 30) {
+        alert("Población incorrecta");
+        return false;
+    }
+
+    var cp = document.getElementById("cp").value;
+    if (!/^\d{5}$/.test(cp)) {
+        alert("Código postal incorrecto");
+        return false;
+    }
+
+    var telefono = document.getElementById("telefono").value;
+    if (!/^\(\d{3}\)\s\d{3}-\d{3}$/.test(telefono)) {
+        alert("Teléfono incorrecto");
+        return false;
+    }
+
+    var movil = document.getElementById("movil").value;
+    if (!/^6\d{2}-\d{3}-\d{3}$/.test(movil)) {
+        alert("Móvil incorrecto");
+        return false;
+    }
+
+    var dni = document.getElementById("dni").value;
+    if (!/^\d{2}\.\d{3}\.\d{3}-[A-Z]$/.test(dni)) {
+        alert("DNI incorrecto");
+        return false;
+    }
+
+    var cuenta = document.getElementById("cuenta").value;
+    if (!/^\d{4}-\d{4}-\d{2}-\d{10}$/.test(cuenta)) {
+        alert("Cuenta incorrecta");
+        return false;
+    }
+
+    var cuota = document.getElementById("cuota").value;
+    if (isNaN(cuota) || cuota <= 0) {
+        alert("Cuota incorrecta");
+        return false;
+    }
+
+    var fecha = document.getElementById("fecha").value;
+    if (!/^\d{2}\/\d{2}\/\d{4}$/.test(fecha)) {
+        alert("Fecha incorrecta");
+        return false;
+    }
+
+    var hijos = document.getElementById("hijos").value;
+    if (!/^\d+$/.test(hijos)) {
+        alert("Número de hijos incorrecto");
+        return false;
+    }
+
+    var email = document.getElementById("email").value;
+    if (!/^[^@]+@[^@]+\.[a-z]{2,}$/.test(email)) {
+        alert("Email incorrecto");
+        return false;
+    }
+
+    alert("Formulario correcto");
+    return true;
+}
+</script>
+
+</body>
+</html>
