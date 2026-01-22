@@ -1,21 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Librerías Valencia - DOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        .contenedor {
+            border: 2px solid #333;
+            padding: 20px;
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, button {
+            margin-top: 5px;
+            width: 100%;
+        }
+        ul {
+            margin-top: 10px;
+        }
+        .botones {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Librerias Valencia</h1>
 
-    <form action="" method="" enctype="">
+<div class="contenedor">
+    <h2>LIBRERÍAS VALENCIA</h2>
 
-        Titulo:<input type="text" name="Titulo">
-        <br><br>
-        Autor:<input type="text" name="autor">
-        <br><br>
-        Precio:<input type="number" name="Precio">
+    <label>Título:
+        <input type="text" id="titulo">
+    </label>
 
-    </form>
+    <label>Autor:
+        <input type="text" id="autor">
+    </label>
+
+    <label>Precio:
+        <input type="number" id="precio">
+    </label>
+
+    <label>Editorial:
+        <select id="editorial">
+            <option>Anaya</option>
+            <option>SM</option>
+            <option>Planeta</option>
+        </select>
+    </label>
+
+    <label>Añadir editorial:
+        <input type="text" id="nuevaEditorial">
+    </label>
+    <button onclick="anadirEditorial()">AÑADIR EDITORIAL</button>
+
+    <label>Ubicación:</label>
+    <ul id="listaUbicaciones">
+        <li>CALLE COLÓN 12</li>
+    </ul>
+
+    <div class="botones">
+        <button onclick="mostrarMas()">+</button>
+        <button onclick="mostrarMenos()">−</button>
+    </div>
+</div>
+
+<script>
+    // Array de ubicaciones
+    const ubicaciones = [
+        "CALLE COLÓN 12",
+        "AVDA. DEL PUERTO 45",
+        "PLAZA AYUNTAMIENTO 3",
+        "CALLE SAN VICENTE 20",
+        "AVDA. BLASCO IBÁÑEZ 78"
+    ];
+
+    let indiceUbicaciones = 1;
+
+    function anadirEditorial() {
+        const input = document.getElementById("nuevaEditorial");
+        const select = document.getElementById("editorial");
+        const valor = input.value.trim();
+
+        if (valor !== "") {
+            const option = document.createElement("option");
+            option.textContent = valor;
+            select.appendChild(option);
+            input.value = "";
+        } else {
+            alert("Introduce una editorial válida");
+        }
+    }
+
+    function mostrarMas() {
+        const lista = document.getElementById("listaUbicaciones");
+        if (indiceUbicaciones < ubicaciones.length) {
+            const li = document.createElement("li");
+            li.textContent = ubicaciones[indiceUbicaciones];
+            lista.appendChild(li);
+            indiceUbicaciones++;
+        }
+    }
+
+    function mostrarMenos() {
+        const lista = document.getElementById("listaUbicaciones");
+        if (lista.children.length > 1) {
+            lista.removeChild(lista.lastElementChild);
+            indiceUbicaciones--;
+        }
+    }
+</script>
+
 </body>
 </html>
